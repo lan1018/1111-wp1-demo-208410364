@@ -3,9 +3,13 @@ import Menu_64 from './components/Menu_64';
 import items from './data'
 import React from 'react';
 import './App_64.css';
+import Category_64 from './components/Category_64';
+
+const allCategories = ['all', 'breakfast', 'lunch', 'chakes', 'dinner'];
 
 const App_64 = () => {
   const [menuItems, setMenuItems] = useState(items);
+  const [categories, setCategories] = useState(allCategories);
 
   //console.log('menuItems', menuItems);=
   return (
@@ -16,23 +20,7 @@ const App_64 = () => {
           <div className="underline"></div>
         </div>
         {/* filter buttons */}
-        <div className="btn-container">
-          <button type="button" className="filter-btn" data-id="all">
-            all
-          </button> 
-          <button type="button" className="filter-btn" data-id="breakfast">
-            breakfast
-          </button>
-          <button type="button" className="filter-btn" data-id="lunch">
-            lunch
-          </button>
-          <button type="button" className="filter-btn" data-id="shakes">
-            shakes
-          </button>
-          <button type="button" className="filter-btn" data-id="dinner">
-            dinner
-          </button>
-        </div>
+        <Category_64 categories={categories} />
         {/* menu items */}
         <Menu_64 items={menuItems} />
         <script src="app.js"></script>
